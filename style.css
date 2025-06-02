@@ -1,0 +1,187 @@
+/* Allgemeines Layout */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #1e3c72, #2a5298, #1e3c72);
+  background-attachment: fixed;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  color: #f0f0f0;
+}
+
+/* Eingabe- & Auswahlfelder */
+.controls input,
+.controls select {
+  padding: 10px 20px;
+  width: 80%;
+  max-width: 400px;
+  font-size: 16px;
+  border-radius: 50px;
+  border: 2px solid #fff;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin: 1%;
+  color: #232121;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  text-transform: capitalize;
+}
+
+.controls input:focus,
+.controls select:focus,
+.controls input:hover,
+.controls select:hover {
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.7);
+  border-color: #e4e3e2;
+}
+
+.controls input::placeholder {
+  color: #ddd;
+}
+
+/* Container für Film-Karten */
+#movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* Film-Karten */
+.movie-card {
+  color: #f0f0f0;
+  border-radius: 25px;
+  padding: 15px;
+  width: 220px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.75);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 3px solid #929086;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  text-transform: capitalize;
+  position: relative;
+}
+
+.movie-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(231, 231, 231, 0.8);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+}
+
+/* Genre-Badges */
+.genre-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  margin: 4px 3px;
+  border-radius: 15px;
+  background-color: #dad9d9;
+  color: #141e30;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 4px 8px rgba(224, 224, 224, 0.5);
+  text-transform: uppercase;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 30, 48, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #243b55, #141e30);
+  padding: 40px;
+  border-radius: 40px;
+  width: 480px;
+  max-width: 90%;
+  box-shadow: 0 10px 60px rgba(206, 206, 205, 0.6);
+  text-align: center;
+  color: #e4e4e2;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 28px;
+  color: #e80c0c;
+  cursor: pointer;
+  user-select: none;
+  font-weight: bold;
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 40px rgba(40, 40, 40, 0.7);
+}
+
+.modal-info p {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .controls input,
+  .controls select {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .modal-content {
+    padding: 20px;
+    border-radius: 25px;
+  }
+
+  .modal-image {
+    height: auto;
+    margin-bottom: 15px;
+  }
+}
+.load-more-btn {
+  margin-top: 30px;
+  padding: 12px 25px;
+  font-size: 16px;
+  background-color: #3ea7a7;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #141e30;
+  box-shadow: 0 6px 20px rgba(109, 109, 108, 0.6);
+  transition: all 0.3s ease;
+}
+
+.load-more-btn:hover {
+  background-color: #c0c0bf;
+}
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95%;
+    font-size: 16px;
+  }
+
+  .modal-info p {
+    font-size: 16px;
+  }
+}

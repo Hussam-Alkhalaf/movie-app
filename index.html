@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="controls">
+    <input type="text" v-model="searchQuery" placeholder="Search for movies...">
+    <select v-model="selectedGenre" @change="fetchMovies">
+        <option value="">Alle Genres</option>
+        <option v-for="genre in genres" :key="genre.id" :value="genre.id">
+          {{ genre.name }}
+        </option>
+      </select>
+      <select v-model="sortOrder">
+        <option value="asc">A - Z</option>
+        <option value="desc">Z - A</option>
+      </select>
+            <button @click="searchMovies" style="padding:10px 20px; margin-left:5px; border:none; border-radius:25px; background:#ffcc00; color:#141e30; font-weight:bold; cursor:pointer;">Suchen</button>
+
+  </div>
+
+
+  <div id="movie-container">
+    <div v-for="movie in movies" :key="movie.id" class="movie-card" @click="showDetails(movie)">
+  <img :src="getImageUrl(movie.poster_path)" alt="Movie Poster">
+  <h3>{{ movie.title }}</h3>
+  <!-- Genre-Badges -->
+  <div class="genre-badges">
+    <span
+      v-for="genreId in movie.genre_ids"
+      :key="genreId"
+      class="genre-badge"
+    >
+      {{ genreNameById(genreId) }}
+    </span>
+  </div>
+</div>
+
+  </div>
+  
+
+  <button @click="loadMore" class="load-more-btn">Load More</button>
+
+  <!-- Modal -->
+  <div v-if="selectedMovie" class="modal" @click.self="selectedMovie = null">
+    <div class="modal-content">
+      <span class="modal-close" @click="selectedMovie = null">×</span>
+      <img class="modal-image" :src="getImageUrl(selectedMovie.backdrop_path)" alt="Movie Image">
+      <h2>{{ selectedMovie.title }}</h2>
+      <div class="modal-info">
+        <p><strong>Genres:</strong>
+          <span v-for="genreId in selectedMovie.genre_ids" :key="genreId">
+            {{ genreNameById(genreId) }}
+          </span>
+        </p>
+        <iframe
+      v-if="trailerUrl"
+      :src="trailerUrl"
+      frameborder="0"
+      allowfullscreen
+      style="width: 100%; height: 300px; border-radius: 15px; margin-bottom: 20px;">
+    </iframe>
+        <p><strong>Release Date:</strong> {{ selectedMovie.release_date }}</p>
+        <p><strong>Overview:</strong> {{ selectedMovie.overview }}</p>
+        <p><strong>Rating:</strong> {{ selectedMovie.vote_average }}/10</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
