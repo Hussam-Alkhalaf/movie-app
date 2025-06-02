@@ -121,10 +121,11 @@ body {
   top: 20px;
   right: 25px;
   font-size: 28px;
-  color: #e80c0c;
+  color: #00000000;
   cursor: pointer;
   user-select: none;
   font-weight: bold;
+  margin: 0%
 }
 
 .modal-image {
