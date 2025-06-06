@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="manifest" href="manifest.json">
+  <meta name ="viewport" content="width = device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="icon-192.png">
+
   <meta charset="UTF-8">
   <title>Movie App</title>
   <link rel="stylesheet" href="style.css">
@@ -56,19 +62,29 @@
             {{ genreNameById(genreId) }}
           </span>
         </p>
-        <iframe
-      v-if="trailerUrl"
-      :src="trailerUrl"
-      frameborder="0"
-      allowfullscreen
-      style="width: 100%; height: 300px; border-radius: 15px; margin-bottom: 20px;">
-    </iframe>
+        <div class="modal-video-wrapper" v-if="trailerUrl">
+  <iframe
+    :src="trailerUrl"
+    frameborder="0"
+    allowfullscreen
+    loading="lazy"
+    referrerpolicy="no-referrer"
+  ></iframe>
+</div>
+
         <p><strong>Release Date:</strong> {{ selectedMovie.release_date }}</p>
         <p><strong>Rating:</strong> {{ selectedMovie.vote_average }}/10</p>
         <p><strong>Overview:</strong> {{ selectedMovie.overview }}</p>
       </div>
     </div>
   </div>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then(() => console.log('Service Worker registered'))
+      .catch(error => console.log('Service Worker registration failed:', error));
+  }
+</script>
 
   <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.js"></script>
   <script src="script.js"></script>
