@@ -13,7 +13,7 @@ body {
 .controls input,
 .controls select {
   padding: 10px 20px;
-  width: 80%;
+  width: 95%;
   max-width: 400px;
   font-size: 16px;
   border-radius: 50px;
@@ -70,7 +70,7 @@ body {
 .movie-card img {
   width: 100%;
   height: 320px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 15px;
   margin-bottom: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
@@ -110,6 +110,7 @@ body {
   border-radius: 40px;
   width: 480px;
   max-width: 90%;
+  overflow-y: auto;
   box-shadow: 0 10px 60px rgba(206, 206, 205, 0.6);
   text-align: center;
   color: #e4e4e2;
@@ -139,6 +140,27 @@ body {
 .modal-info p {
   margin: 10px 0;
   font-size: 18px;
+}
+
+.modal-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Verhältnis */
+  height: 0;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 40px rgba(40, 40, 40, 0.7);
+}
+
+.modal-video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 15px;
 }
 
 /* Responsive */
@@ -176,10 +198,32 @@ body {
 .load-more-btn:hover {
   background-color: #c0c0bf;
 }
+
 @media (max-width: 600px) {
-  .modal-content {
+  .controls input,
+  .controls select {
     width: 95%;
+    padding: 10px;
+  }
+  #movie-container {
+    gap: 10px;
+  }
+  .movie-card {
+    width: 90vw;
+    min-width: 0;
+    max-width: 98vw;
+    padding: 10px;
+  }
+  .movie-card img {
+    height: 180px;
+  }
+  .modal-content {
+    width: 98vw;
+    max-width: 98vw;
     font-size: 16px;
+    padding: 10px;
+    border-radius: 18px;
+    overflow-y: auto;
   }
 
   .modal-info p {
