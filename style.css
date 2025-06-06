@@ -218,8 +218,8 @@ body {
     height: 180px;
   }
   .modal-content {
-    width: 98vw;
-    max-width: 98vw;
+    width: 80vw;
+    max-width: 90vw;
     font-size: 16px;
     padding: 10px;
     border-radius: 18px;
