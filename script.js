@@ -71,6 +71,15 @@ createApp({
         console.error('Error fetching movies:', err);
       }
     },
+        randomMovie() {
+  if (this.movies.length === 0) {
+    alert("Keine Filme für das gewählte Genre gefunden.");
+    return;
+  }
+  const randomIndex = Math.floor(Math.random() * this.movies.length);
+  const movie = this.movies[randomIndex];
+  this.showDetails(movie);
+},
     sortMovies() {
       this.movies.sort((a, b) => {
         const titleA = a.title?.toLowerCase() || '';
