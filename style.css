@@ -190,17 +190,16 @@ body {
   }
 
   #movie-container {
-  gap: 10px;
-  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /*  linken Rand beginnen */
+  gap: 2%; /* klein genug, damit 47% + 2% Abstand x2 nicht über 100% geht */
+  padding: 0;
 }
 
-
-  .movie-card {
-  width: 47%; /* fast die Hälfte */
-  margin: 1%;
-  padding: 10px;
-  box-sizing: border-box; /* <== Wichtig! */
-  word-wrap: break-word;
+.movie-card {
+  width: 47%;
+  margin: 0; /*  Abstand */
 }
 
 
