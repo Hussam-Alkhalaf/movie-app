@@ -1,4 +1,4 @@
-/* Allgemeines Layout */
+/* ====== Allgemeines Layout ====== */
 body {
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(to bottom, #1e3c72, #2a5298, #1e3c72);
@@ -9,7 +9,7 @@ body {
   color: #f0f0f0;
 }
 
-/* Eingabe- & Auswahlfelder */
+/* ====== Eingabe- & Auswahlfelder ====== */
 .controls input,
 .controls select {
   padding: 10px 20px;
@@ -39,7 +39,7 @@ body {
   color: #ddd;
 }
 
-/* Container für Film-Karten */
+/* ====== Film-Karten Container ====== */
 #movie-container {
   display: flex;
   flex-wrap: wrap;
@@ -47,7 +47,7 @@ body {
   gap: 25px;
 }
 
-/* Film-Karten */
+/* ====== Film-Karte ====== */
 .movie-card {
   color: #f0f0f0;
   border-radius: 25px;
@@ -76,7 +76,7 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
 }
 
-/* Genre-Badges */
+/* ====== Genre-Badges ====== */
 .genre-badge {
   display: inline-block;
   padding: 6px 12px;
@@ -90,7 +90,7 @@ body {
   text-transform: uppercase;
 }
 
-/* Modal */
+/* ====== Modal Fenster ====== */
 .modal {
   position: fixed;
   top: 0;
@@ -126,7 +126,6 @@ body {
   cursor: pointer;
   user-select: none;
   font-weight: bold;
-  margin: 0%
 }
 
 .modal-image {
@@ -163,24 +162,7 @@ body {
   border-radius: 15px;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .controls input,
-  .controls select {
-    width: 95%;
-    padding: 10px;
-  }
-
-  .modal-content {
-    padding: 20px;
-    border-radius: 25px;
-  }
-
-  .modal-image {
-    height: auto;
-    margin-bottom: 15px;
-  }
-}
+/* ====== Load More Button ====== */
 .load-more-btn {
   margin-top: 30px;
   padding: 12px 25px;
@@ -199,31 +181,33 @@ body {
   background-color: #c0c0bf;
 }
 
+/* ====== Responsive Anpassungen (Handy & kleine Tablets) ====== */
 @media (max-width: 600px) {
   .controls input,
   .controls select {
     width: 95%;
     padding: 10px;
   }
+
   #movie-container {
     gap: 10px;
   }
+
   .movie-card {
     width: 90vw;
-    min-width: 0;
-    max-width: 98vw;
     padding: 10px;
   }
+
   .movie-card img {
     height: 180px;
   }
+
   .modal-content {
     width: 98vw;
     max-width: 98vw;
     font-size: 16px;
     padding: 10px;
     border-radius: 18px;
-    overflow-y: auto;
   }
 
   .modal-info p {
