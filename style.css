@@ -190,18 +190,20 @@ body {
   }
 
   #movie-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start; /*  linken Rand beginnen */
-  gap: 2%; /* klein genug, damit 47% + 2% Abstand x2 nicht über 100% geht */
-  padding: 0;
-}
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+    gap: 10px;
+    box-sizing: border-box;
+  }
 
-.movie-card {
-  width: 47%;
-  margin: 0; /*  Abstand */
-}
-
+  .movie-card {
+    width: calc(50% - 10px);
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0;
+  }
 
   .movie-card img {
     height: 180px;
