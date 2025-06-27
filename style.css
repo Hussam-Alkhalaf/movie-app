@@ -199,6 +199,8 @@ body {
   width: 47%; /* fast die Hälfte */
   margin: 1%;
   padding: 10px;
+  box-sizing: border-box; /* <== Wichtig! */
+  word-wrap: break-word;
 }
 
 
