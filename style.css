@@ -220,4 +220,11 @@ body {
   .modal-info p {
     font-size: 16px;
   }
+  .genre-badge {
+  font-size: 10px;
+  padding: 4px 8px;
+  margin: 2px 2px;
+  border-radius: 10px;
+}
+
 }
