@@ -190,13 +190,17 @@ body {
   }
 
   #movie-container {
-    gap: 10px;
-  }
+  gap: 10px;
+  justify-content: center;
+}
+
 
   .movie-card {
-    width: 90vw;
-    padding: 10px;
-  }
+  width: 47%; /* fast die Hälfte */
+  margin: 1%;
+  padding: 10px;
+}
+
 
   .movie-card img {
     height: 180px;
